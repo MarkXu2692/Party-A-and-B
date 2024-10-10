@@ -7,3 +7,5 @@ A program designed for people to search for project and opportunity
 放到一个类似于公告栏的地方，人们可以领下这个idea，并负责开发，或者实现，然后发到社区，大家可以一起维护。
 
 本质上是个社区加投票
+
+download [Node.js](https://nodejs.org/zh-cn)
