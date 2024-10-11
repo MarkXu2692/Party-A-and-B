@@ -15,11 +15,9 @@ download [docker](https://docs.docker.com/desktop/install/windows-install/)
 
 直接在终端运行：
 ```docker compose up```
-or
+
 安装Docker环境：
 ```docker pull myusername/party-a-and-b```
-or
-```docker load -i party-a-and-b.tar```
 
 ## 运行程序
 ```docker compose up```
