@@ -9,3 +9,17 @@ A program designed for people to search for project and opportunity
 本质上是个社区加投票
 
 download [Node.js](https://nodejs.org/zh-cn)
+download [docker](https://docs.docker.com/desktop/install/windows-install/)
+
+## Docker 环境配置
+
+直接在终端运行：
+```docker compose up```
+or
+安装Docker环境：
+```docker pull myusername/party-a-and-b```
+or
+```docker load -i party-a-and-b.tar```
+
+## 运行程序
+```docker compose up```
