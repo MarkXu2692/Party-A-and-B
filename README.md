@@ -9,15 +9,21 @@ A program designed for people to search for project and opportunity
 本质上是个社区加投票
 
 download [Node.js](https://nodejs.org/zh-cn)
+
 download [docker](https://docs.docker.com/desktop/install/windows-install/)
 
 ## Docker 环境配置
 
-直接在终端运行：
-```docker compose up```
+按照道理应该是直接在终端运行：```docker compose up```就可以了
+
+如果不行就试下这个：
 
 安装Docker环境：
 ```docker pull myusername/party-a-and-b```
 
 ## 运行程序
 ```docker compose up```
+
+然后开一个新的terminal，进行操作
+
+download [MongoDB](https://www.mongodb.com/try/download/community-kubernetes-operator)

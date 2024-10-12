@@ -22,6 +22,9 @@ WORKDIR /app
 COPY package.json ./
 RUN npm install
 
+# Install additional backend dependencies (optional, if you need Express, MongoDB, etc.)
+RUN npm install express mongoose bcryptjs jsonwebtoken body-parser
+
 # Copy the rest of the application files
 COPY . .
 
