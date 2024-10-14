@@ -15,12 +15,10 @@ const port = 8080;
 app.use(express.json());
 app.use(cors());
 
-// MongoDB connection (your MongoDB URI)
-const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/mydatabase';
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+// MongoDB connection
+const mongoURI = process.env.MONGO_URI || 'mongodb://localhost:27017/mydatabase';  // Ensure this is defined
+
+mongoose.connect(mongoURI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
@@ -78,10 +76,25 @@ app.post('/login', async (req, res) => {
   res.status(200).json({ token });
 });
 
-// Protected route example
-app.get('/dashboard', authenticateToken, (req, res) => {
-  res.status(200).json({ message: 'Welcome to your dashboard', user: req.user });
+// Profile route (protected)
+app.get('/profile', authenticateToken, async (req, res) => {
+  try {
+    console.log('Fetching profile for user:', req.user.id);  // Log user ID for debugging
+    const user = await User.findById(req.user.id).select('-password');  // Exclude password from the result
+
+    if (!user) {
+      console.log('User not found');
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    console.log('User found:', user);  // Log found user for debugging
+    res.json(user);  // Send user details as JSON
+  } catch (err) {
+    console.error('Error fetching profile:', err);  // Log any error during fetching
+    res.status(500).json({ message: 'Server error' });
+  }
 });
+
 
 // Start the server
 app.listen(port, '0.0.0.0', () => {
