@@ -12,6 +12,9 @@ const authenticateToken = (req, res, next) => {
     req.user = decoded;  // Attach the decoded token (user ID and username) to the request
     next();  // Proceed to the next middleware or route handler
   } catch (err) {
+    if (err.name === 'TokenExpiredError') {
+          return res.status(403).json({ message: 'Token expired' });
+        }
     console.error('Invalid token:', err);  // Log error if token is invalid
     return res.status(403).json({ message: 'Invalid token' });
   }
