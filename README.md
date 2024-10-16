@@ -12,18 +12,27 @@ download [Node.js](https://nodejs.org/zh-cn)
 
 download [docker](https://docs.docker.com/desktop/install/windows-install/)
 
-## Docker 环境配置
-
-按照道理应该是直接在终端运行：```docker compose up```就可以了
-
-如果不行就试下这个：
-
-安装Docker环境：
-```docker pull myusername/party-a-and-b```
-
 ## 运行程序
-```docker compose up```
+
+```
+cd backend/
+```
+
+```
+docker compose up --build
+```
 
 然后开一个新的terminal，进行操作
 
-download [MongoDB](https://www.mongodb.com/try/download/community-kubernetes-operator)
+测试后端使用Postman
+
+测试命令：[Instruction](testInstruction.md)
+
+download [MongoDB
+](https://www.mongodb.com/try/download/community-kubernetes-operator)
+
+## 完成功能
+
+* [X] 注册功能
+* [X] 登陆功能（个人profile权限管理）
+* [X] 修改密码
